@@ -1,5 +1,5 @@
 #!/bin/bash
-commit_hash="ed94398cb55114f01ea103397859983fa31ac143"
+commit_hash="9017d5010ce20617d5fa700cba206c434875e1be"
 repo=`printenv REPO`
 cd /home/xanmod_builder
 git clone https://aur.archlinux.org/linux-xanmod.git &&
