@@ -4,8 +4,7 @@ set -e
 
 repo="$(printenv REPO)"
 
-mkdir -v "/data/build"
-cd "/data"
+cd "/data/linux"
 
 gpg --recv-keys 3B94A80E50A477C7
 gpg --recv-keys 19802F8B0D70FC30
