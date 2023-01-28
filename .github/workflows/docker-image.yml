@@ -20,16 +20,20 @@ jobs:
         with:
           path: /var/cache/pacman
           key: ${{ runner.os }}-pacman
+      
+      - name: Create Data Dir
+        run: |
+          [ -d /data ] && mkdir -v /data || exit 0
 
-      - name: Cache Docker Volumes
-        id: cache-docker-volumes
+      - name: Cache Data
+        id: cache-data
         uses: actions/cache@v3
         with:
-          path: /var/lib/docker/volumes
-          key: ${{ runner.os }}-docker-volumes
+          path: /data
+          key: ${{ runner.os }}-data
 
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag linux_builder:latest
+        run: docker build . --file Dockerfile --tag linux_build:latest
 
       - name: Run the Docker image
-        run: docker run -i -e GITHUB_KEY=${{ secrets.GITHUB_TOKEN }} -e REPO=${{ github.repository }} linux_builder:latest
+        run: docker run -i -e GITHUB_KEY=${{ secrets.GITHUB_TOKEN }} -e REPO=${{ github.repository }} -v /data:/data linux_build:latest
