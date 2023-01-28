@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 repo="$(printenv REPO)"
 
 mkdir -v "$HOME/build"
