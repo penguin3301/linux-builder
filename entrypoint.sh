@@ -6,6 +6,7 @@ repo="$(printenv REPO)"
 
 cd "/data"
 sudo mkdir "build"
+sudo chown -R "$USER:$USER" "build"
 cd "build"
 
 gpg --recv-keys 3B94A80E50A477C7
