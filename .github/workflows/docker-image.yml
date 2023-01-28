@@ -14,12 +14,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Cache Repo
-        id: cache-repo
+      - name: Cache Docker Volumes
+        id: cache-docker-volumes
         uses: actions/cache@v3
         with:
-          path: /home/builder/linux/archlinux-linux
-          key: ${{ runner.os }}-repo
+          path: /var/lib/docker/volumes
+          key: ${{ runner.os }}-docker-volumes
 
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag linux_builder:latest
