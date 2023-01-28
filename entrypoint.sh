@@ -9,8 +9,8 @@ sudo mkdir "build"
 sudo chown -R "$USER:$USER" "build"
 cd "build"
 
-gpg --recv-keys 3B94A80E50A477C7
-gpg --recv-keys 19802F8B0D70FC30
+gpg --keyserver keys.openpgp.org --recv-keys 19802F8B0D70FC30
+gpg --keyserver keys.openpgp.org --recv-keys 3B94A80E50A477C7
 
 asp update linux
 asp export linux
