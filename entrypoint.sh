@@ -7,6 +7,8 @@ repo="$(printenv REPO)"
 mkdir -v "$HOME/build"
 cd "$HOME"
 
+gpg --recv-keys 19802F8B0D70FC30
+
 asp update linux
 asp export linux
 
