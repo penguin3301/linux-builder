@@ -6,8 +6,8 @@ repo="$(printenv REPO)"
 
 cd "/data"
 sudo mkdir "build"
-sudo chown -R "$USER:$USER" "build"
-sudo chmod 700 build
+sudo chown -vR "builder:builder" "build"
+sudo chmod -v 700 build
 ls -l
 cd "build"
 
